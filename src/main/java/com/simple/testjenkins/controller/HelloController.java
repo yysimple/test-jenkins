@@ -16,7 +16,7 @@ public class HelloController {
 
     @GetMapping("/sayHello")
     public String sayHello() {
-        return "Hello jenkins";
+        return "Hello jenkins--测试改变代码部署";
     }
 
 }
