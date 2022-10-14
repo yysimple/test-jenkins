@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: test-jenkins
+  repository: 192.168.31.110:8084/test/test-jenkins
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: SNAPSHOT-4
 
-imagePullSecrets: []
+imagePullSecrets: harbor-secret
 nameOverride: ""
 fullnameOverride: ""
 
