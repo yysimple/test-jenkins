@@ -21,7 +21,7 @@ spec:
         {{- include "test-jenkins.selectorLabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
-        - name: {{- .Values.imagePullSecrets }}
+        - name: docker-harbor-key
       serviceAccountName: {{ include "test-jenkins.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -29,7 +29,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
